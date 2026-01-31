@@ -5,6 +5,7 @@
 1password-cli
 aether
 alacritty
+alsa-utils
 asdcontrol
 avahi
 bash-completion
@@ -79,6 +80,7 @@ mariadb-libs
 mise
 mpv
 nautilus
+nautilus-python
 gnome-disk-utility
 noto-fonts
 noto-fonts-cjk

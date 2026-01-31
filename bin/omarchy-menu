@@ -355,8 +355,9 @@ show_install_ai_menu() {
 }
 
 show_install_gaming_menu() {
-  case $(menu "Install" "  Steam\n  RetroArch [AUR]\n󰍳  Minecraft\n󰖺  Xbox Controller [AUR]") in
+  case $(menu "Install" "  Steam\n󰢹  NVIDIA GeForce NOW\n  RetroArch [AUR]\n󰍳  Minecraft\n󰖺  Xbox Controller [AUR]") in
   *Steam*) present_terminal omarchy-install-steam ;;
+  *GeForce*) present_terminal omarchy-install-geforce-now ;;
   *RetroArch*) aur_install_and_launch "RetroArch" "retroarch retroarch-assets libretro libretro-fbneo" "com.libretro.RetroArch.desktop" ;;
   *Minecraft*) install_and_launch "Minecraft" "minecraft-launcher" "minecraft-launcher" ;;
   *Xbox*) present_terminal omarchy-install-xbox-controllers ;;
@@ -554,6 +555,10 @@ show_update_password_menu() {
   esac
 }
 
+show_about() {
+  omarchy-launch-about
+}
+
 show_system_menu() {
   local options="  Lock\n󱄄  Screensaver"
   [ -f ~/.local/state/omarchy/toggles/suspend-on ] && options="$options\n󰒲  Suspend"
@@ -591,7 +596,7 @@ go_to_menu() {
   *install*) show_install_menu ;;
   *remove*) show_remove_menu ;;
   *update*) show_update_menu ;;
-  *about*) omarchy-launch-about ;;
+  *about*) show_about ;;
   *system*) show_system_menu ;;
   esac
 }
